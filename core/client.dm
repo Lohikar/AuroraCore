@@ -42,3 +42,12 @@ em						{font-style: normal;font-weight: bold;}
 
 	if (href_list["_src_"] == "vars")
 		return view_var_Topic(href,href_list,hsrc)
+
+/client/verb/start_mc()
+	set name = "Start MC"
+	set desc = "Initializes the master controller."
+
+	if (global.mc_is_started)
+		usr << "The MC is already running."
+	else
+		Master.Initialize()
