@@ -50,4 +50,5 @@ em						{font-style: normal;font-weight: bold;}
 	if (global.mc_is_started)
 		usr << "The MC is already running."
 	else
+		global.mc_is_started = TRUE
 		Master.Initialize()
