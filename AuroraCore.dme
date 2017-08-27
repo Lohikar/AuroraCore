@@ -1,0 +1,56 @@
+// DM Environment file for AuroraCore.dme.
+// All manual changes should be made outside the BEGIN_ and END_ blocks.
+// New source code should be placed in .dm files: choose File/New --> Code File.
+
+// BEGIN_INTERNALS
+// END_INTERNALS
+
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+
+// BEGIN_PREFERENCES
+#define DEBUG
+// END_PREFERENCES
+
+// BEGIN_INCLUDE
+#include "configuration.dm"
+#include "_defines\callback.dm"
+#include "_defines\lists.dm"
+#include "_defines\master_controller.dm"
+#include "_defines\math.dm"
+#include "_defines\misc.dm"
+#include "_defines\qdel.dm"
+#include "_defines\subsystems-defines.dm"
+#include "_defines\subsystems-order.dm"
+#include "core\atoms.dm"
+#include "core\atoms_init.dm"
+#include "core\client.dm"
+#include "core\controller.dm"
+#include "core\globals.dm"
+#include "core\mob.dm"
+#include "core\helpers\callback.dm"
+#include "core\helpers\lists.dm"
+#include "core\helpers\misc.dm"
+#include "core\helpers\stoplag.dm"
+#include "core\helpers\type2type.dm"
+#include "core\helpers\weakref.dm"
+#include "core\helpers\view_variables\callproc.dm"
+#include "core\helpers\view_variables\helpers.dm"
+#include "core\helpers\view_variables\massmodvar.dm"
+#include "core\helpers\view_variables\modify_variables.dm"
+#include "core\helpers\view_variables\topic.dm"
+#include "core\helpers\view_variables\view_variables.dm"
+#include "core\master\admin.dm"
+#include "core\master\failsafe.dm"
+#include "core\master\master.dm"
+#include "core\master\subsystem.dm"
+#include "core\sorting\cmp.dm"
+#include "core\sorting\sortInstance.dm"
+#include "core\sorting\TimSort.dm"
+#include "core\subsystems\atoms.dm"
+#include "core\subsystems\garbage.dm"
+#include "core\subsystems\processing.dm"
+#include "core\subsystems\timer.dm"
+// END_INCLUDE
+
