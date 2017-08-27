@@ -31,10 +31,12 @@ em						{font-style: normal;font-weight: bold;}
 
 	if (global.round_is_started)
 		usr << "The round is already started!"
-	else
+	else if (global.mc_is_started)
 		global.round_is_started = TRUE
 		Master.RoundStart()
 		world << "[src] has started the round."
+	else
+		usr << "The MC has not been initialized."
 
 /client/Topic(href, href_list, hsrc)
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
