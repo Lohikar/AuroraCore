@@ -27,12 +27,8 @@ var/datum/controller/subsystem/processing/SSprocessing
 		current_run.len--
 		if(thing)
 			if (thing.process() == PROCESS_KILL)
-				stop_processing(thing)
+				STOP_PROCESSING(src, thing)
 		else
 			processing -= thing
 		if (MC_TICK_CHECK)
 			return
-
-// Helper so PROCESS_KILL works.
-/datum/controller/subsystem/processing/proc/stop_processing(datum/D)
-	STOP_PROCESSING(src, D)
