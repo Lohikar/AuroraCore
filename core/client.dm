@@ -54,3 +54,7 @@ em						{font-style: normal;font-weight: bold;}
 	else
 		global.mc_is_started = TRUE
 		Master.Initialize()
+
+/client/Destroy()
+	..()
+	return QDEL_HINT_HARDDEL_NOW

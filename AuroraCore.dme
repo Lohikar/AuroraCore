@@ -27,6 +27,7 @@
 #include "core\atoms_init.dm"
 #include "core\client.dm"
 #include "core\controller.dm"
+#include "core\datum.dm"
 #include "core\globals.dm"
 #include "core\mob.dm"
 #include "core\helpers\callback.dm"
