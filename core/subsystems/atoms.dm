@@ -53,7 +53,8 @@ var/datum/controller/subsystem/atoms/SSatoms
 				++count
 				CHECK_TICK
 
-	world << "<span class='danger'>Initialized [count] atoms.</span>"
+	log_notice(span("danger", "Initialized [count] atoms."))
+	log_ss("atoms", "Initialized [count] atoms.")
 
 	initialized = INITIALIZATION_INNEW_REGULAR
 
@@ -61,15 +62,17 @@ var/datum/controller/subsystem/atoms/SSatoms
 		for(var/I in late_loaders)
 			var/atom/A = I
 			A.LateInitialize()
-		
-		world << "<span class='danger'>Late-initialized [late_loaders.len] atoms.</span>"
+		log_notice(span("danger", "Late-initialized [late_loaders.len] atoms."))
+		log_ss("atoms", "Late initialized [late_loaders.len] atoms")
+		late_loaders.Cut()
 
 	if(late_qdel.len)
 		var/num_qdels = late_qdel.len
 		for(var/thing in late_qdel)
 			qdel(thing)
 		
-		world << "<span class='danger'>Late-qdeleted [num_qdels] atoms.</span>"
+		log_notice(span("danger", "Late-qdeleted [num_qdels] atoms."))
+		log_ss("atoms", "Late qdeleted [num_qdels] atoms.")
 
 		late_qdel.Cut()
 		
@@ -115,6 +118,17 @@ var/datum/controller/subsystem/atoms/SSatoms
 		BadInitializeCalls[the_type] |= BAD_INIT_DIDNT_INIT
 	
 	return QDELETED(A)
+
+/datum/controller/subsystem/atoms/proc/ForceInitializeContents(atom/A)
+	var/list/mload_args = list(TRUE)
+	var/loaded = 0
+	for (var/thing in A)
+		var/atom/movable/AM = thing
+		if (!AM.initialized)
+			InitAtom(AM, mload_args)
+			++loaded
+
+	log_debug("atoms: force-loaded [loaded] out of [A.contents.len] atoms in [A].")
 
 /datum/controller/subsystem/atoms/proc/InitLog()
 	. = ""

@@ -3,7 +3,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 /datum/controller/subsystem/garbage_collector
 	name = "Garbage"
 	priority = SS_PRIORITY_GARBAGE
-	wait = 5
+	wait = 2 SECONDS
 	flags = SS_FIRE_IN_LOBBY|SS_POST_FIRE_TIMING|SS_BACKGROUND|SS_NO_INIT
 
 	var/collection_timeout = 3000// deciseconds to wait to let running procs finish before we just say fuck it and force del() the object
@@ -208,7 +208,7 @@ var/datum/controller/subsystem/garbage_collector/SSgarbage
 				// indicates the objects Destroy() does not respect force
 				if(!SSgarbage.noforcerespect["[D.type]"])
 					SSgarbage.noforcerespect["[D.type]"] = "[D.type]"
-					warning("[D.type] has been force deleted, but is \
+					log_warning("[D.type] has been force deleted, but is \
 						returning an immortal QDEL_HINT, indicating it does \
 						not respect the force flag for qdel(). It has been \
 						placed in the queue, further instances of this type \

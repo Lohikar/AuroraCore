@@ -32,6 +32,7 @@
 #include "core\mob.dm"
 #include "core\helpers\callback.dm"
 #include "core\helpers\lists.dm"
+#include "core\helpers\logging.dm"
 #include "core\helpers\misc.dm"
 #include "core\helpers\stoplag.dm"
 #include "core\helpers\type2type.dm"
